@@ -1,0 +1,26 @@
+{
+  "name": "write_read_files",
+  "version": "0.0.1",
+  "description": "Read and write on json files with fs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ALESSANDROLMENEZES/bootcamp-igti-fs.git"
+  },
+  "keywords": [
+    "fs",
+    "filesystem",
+    "read",
+    "write",
+    "json"
+  ],
+  "author": "Alessandro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ALESSANDROLMENEZES/bootcamp-igti-fs/issues"
+  },
+  "homepage": "https://github.com/ALESSANDROLMENEZES/bootcamp-igti-fs#readme"
+}
