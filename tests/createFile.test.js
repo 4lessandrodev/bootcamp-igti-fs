@@ -1,9 +1,9 @@
-const  checkFileExist = require('../src/modules/checkFileExist.js')
-const createFile = require('../src/modules/createFile.js');
-const deleteFile = require('../src/modules/deleteFile.js');
-const readFile = require('../src/modules/read.js');
+const  checkFileExist = require('../src/modules/checkFileExist')
+const createFile = require('../src/modules/createFile');
+const deleteFile = require('../src/modules/deleteFile');
+const readFile = require('../src/modules/readFile');
 //import {FILE_PATH} from '../src/modules/variables.js'
-//import {writeFile } from '../src/modules/write.js'
+const writeFile = require('../src/modules/writeFile');
 
 describe('CreateFile', () => {
 
@@ -34,4 +34,10 @@ describe('CreateFile', () => {
   const result = await readFile('not_exist_file.json');
   expect(result).toBe('O arquivo não existe');
  })
+
+ test('Deve escrever a frase [Deus é fiel] em um arquivo com o nome de frases.json', async () => {
+  await createFile('frases.json');
+  const result = await writeFile('frases.json', 'Deus é fiel');
+  expect(result.data).toContain('Deus é fiel');
+ });
 })
