@@ -1,14 +1,20 @@
-import {checkFileExist } from './checkFileExist.js';
+const checkFileExist = require('./checkFileExist');
+const fileSystem = require('fs');
+const fs = fileSystem.promises;
+const path = require('path');
+const FILE_PATH = require('./variables');
 
-export const readFile = async (filename) => {
+const readFile = async (filename) => {
  try {
-  const fileExist = await checkFileExist(filename);
-  if (fileExist[0]) {
-   return JSON.parse(fileExist[1]);
+  const exist = await checkFileExist(filename);
+  if (exist) {
+   return JSON.parse(await fs.readFile(path.join(FILE_PATH, filename)));
   } 
-  return fileExist.push('O arquivo não existe');
+  throw new Error('O arquivo não existe');
  } catch (error) {
   return error.message;
  }
 }
+
+module.exports = readFile;
 
