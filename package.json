@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Read and write on json files with fs",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
@@ -22,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/ALESSANDROLMENEZES/bootcamp-igti-fs/issues"
   },
-  "homepage": "https://github.com/ALESSANDROLMENEZES/bootcamp-igti-fs#readme"
+  "homepage": "https://github.com/ALESSANDROLMENEZES/bootcamp-igti-fs#readme",
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
 }
