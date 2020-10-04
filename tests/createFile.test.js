@@ -1,7 +1,7 @@
 const  checkFileExist = require('../src/modules/checkFileExist.js')
 const createFile = require('../src/modules/createFile.js');
 const deleteFile = require('../src/modules/deleteFile.js');
-//import {readFile} from '../src/modules/read.js'
+const readFile = require('../src/modules/read.js');
 //import {FILE_PATH} from '../src/modules/variables.js'
 //import {writeFile } from '../src/modules/write.js'
 
@@ -29,4 +29,9 @@ describe('CreateFile', () => {
   expect(fileExistBeforeDelete).toBe(true);
   expect(existAfterDelete).toBe(false);
  });
+
+ test('Deve gerar erro [O arquivo não existe] ao tentar ler um arquivo inexistente', async () => {
+  const result = await readFile('not_exist_file.json');
+  expect(result).toBe('O arquivo não existe');
+ })
 })
