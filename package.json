@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Read and write on json files with fs",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "jest",
     "test:cov": "jest --coverage"
