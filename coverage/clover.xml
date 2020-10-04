@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1601833425775" clover="3.2.0">
-  <project timestamp="1601833425775" name="All files">
+<coverage generated="1601833607778" clover="3.2.0">
+  <project timestamp="1601833607778" name="All files">
     <metrics statements="76" coveredstatements="76" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6" elements="90" coveredelements="90" complexity="0" loc="76" ncloc="76" packages="1" files="8" classes="8"/>
     <file name="appendDataFile.js" path="C:\Users\ALESSANDRO\Documents\CURSOS\IGTI - FULLSTACK\fs\src\modules\appendDataFile.js">
       <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
