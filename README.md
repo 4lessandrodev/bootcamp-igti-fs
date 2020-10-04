@@ -14,4 +14,8 @@
 
 `$ npm run test:cov`
 
+###### Você pode executar o arquivo index.js
+
+`node index.js`
+
 [![Resultado dos testes](./tests/Result.jpg "Resultado dos testes")](./tests/Result.jpg "Resultado dos testes")
