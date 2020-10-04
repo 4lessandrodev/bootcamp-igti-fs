@@ -2,8 +2,9 @@ const  checkFileExist = require('../src/modules/checkFileExist')
 const createFile = require('../src/modules/createFile');
 const deleteFile = require('../src/modules/deleteFile');
 const readFile = require('../src/modules/readFile');
-//import {FILE_PATH} from '../src/modules/variables.js'
 const writeFile = require('../src/modules/writeFile');
+const appendDataFile = require('../src/modules/appendDataFile');
+const fileNotExistMessage = require('../src/modules/error');
 
 describe('CreateFile', () => {
 
@@ -32,12 +33,38 @@ describe('CreateFile', () => {
 
  test('Deve gerar erro [O arquivo não existe] ao tentar ler um arquivo inexistente', async () => {
   const result = await readFile('not_exist_file.json');
-  expect(result).toBe('O arquivo não existe');
+  expect(result).toEqual(fileNotExistMessage);
  })
 
  test('Deve escrever a frase [Deus é fiel] em um arquivo com o nome de frases.json', async () => {
+  const expected = ['Deus é fiel', 'Salmos 23'];
   await createFile('frases.json');
-  const result = await writeFile('frases.json', 'Deus é fiel');
-  expect(result.data).toContain('Deus é fiel');
+  await appendDataFile('frases.json', 'Deus é fiel');
+  const result = await appendDataFile('frases.json', 'Salmos 23');
+  await deleteFile('frases.json');
+  expect(result.data).toEqual(expect.arrayContaining(expected));
+ });
+
+ test('Deve retornar um erro [O arquivo não existe] ao tentar adicionar valor em um arquivo inexistente', async () => {
+  const result = await appendDataFile('not_exist_file.json', 'any_value');
+  expect(result).toBe(fileNotExistMessage);
+ });
+
+ test('Deve retornar um erro [O arquivo não existe] ao tentar excluir um arquivo inexistente', async () => {
+  const result = await deleteFile('not_exist_file.json');
+  expect(result).toBe(fileNotExistMessage);
+ });
+
+ test('Deve criar um novo arquivo ao tentar editar um arquivo inexistente', async () => {
+  const created = await writeFile('not_exist_file.json', 'nothing_important');
+  const result = await readFile('not_exist_file.json');
+  await deleteFile('not_exist_file.json');
+  expect(result).toBe('nothing_important');
+  expect(created).toBe('nothing_important');
+ });
+
+ test('Deve retornar um erro [O arquivo não existe] ao tentar editar um arquivo sem nome', async () => {
+  const invalidValues = await writeFile();
+  expect(invalidValues).toBe(fileNotExistMessage);
  });
 })
