@@ -11,4 +11,4 @@
 `$ npm install`
 `$ npm run test:cov`
 
-[![Resultado dos testes](./src/tests/Result.jpg "Resultado dos testes")](./src/tests/Result.jpg "Resultado dos testes")
+[![Resultado dos testes](./tests/Result.jpg "Resultado dos testes")](./tests/Result.jpg "Resultado dos testes")
