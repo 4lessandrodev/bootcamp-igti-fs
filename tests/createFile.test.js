@@ -6,6 +6,14 @@ const deleteFile = require('../src/modules/deleteFile.js');
 //import {writeFile } from '../src/modules/write.js'
 
 describe('CreateFile', () => {
+
+ test('Deve conseguir checar que se um arquivo existe ou não', async () => {
+  const indexExist = await checkFileExist('index.json');
+  const notExist = await checkFileExist('not_exist_file.json');
+  expect(indexExist).toBe(true);
+  expect(notExist).toBe(false);
+ });
+
  test('Deve criar um arquivo com o nome carros se o mesmo não existir', async () => {
   const existBefore = await checkFileExist('carros.json');
   await createFile('carros.json');
